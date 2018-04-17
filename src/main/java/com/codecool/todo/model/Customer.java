@@ -1,6 +1,5 @@
 package com.codecool.todo.model;
 
-import com.sun.javafx.beans.IDProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
