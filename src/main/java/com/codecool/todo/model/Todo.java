@@ -1,18 +1,20 @@
 package com.codecool.todo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
     private String toDo;
+    @ManyToOne
+    @JoinColumn(name = "creator_id")
     private Customer creator;
+
 
     public Todo (Customer customer, String toDo){
         this.customer= customer;

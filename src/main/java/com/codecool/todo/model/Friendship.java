@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class Friendship implements Serializable{
+public class Friendship implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
