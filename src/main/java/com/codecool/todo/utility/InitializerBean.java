@@ -21,6 +21,7 @@ public class InitializerBean {
 
         Todo todo = new Todo(customer1, "do stuff");
         Todo todo1 = new Todo(customer1, "for real");
+        Todo todo2 = new Todo(customer1, "todo", customer2);
 
         costumerService.save(customer1);
         costumerService.save(customer2);
@@ -29,7 +30,7 @@ public class InitializerBean {
 
         toDoService.save(todo);
         toDoService.save(todo1);
-
+        toDoService.save(todo2);
 
     }
 }

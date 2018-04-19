@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="copy">
+<button class="btn btn-primary" data-toggle="modal" id = "myBtn" data-target="#myModal">
+    Login modal</button>
+    <div id="myModal" class="modal fade" role="dialog" th:fragment="loginfragment :: copy">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Please Log in</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs">
+                    <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
+                    <li><a href="#Registration" data-toggle="tab">Registration</a></li>
+                </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="Login">
+                            <form role="form" class="form-horizontal">
+                                <div class="form-group">
+                                    <div th:replace="fragments/loginfragment :: copy"></div>
+                                </div>
+                            </form>
+                    </div>
+                    <div class="tab-pane" id="Registration">
+                        <div th:replace="fragments/registerfragment"></div>
+                </div>
+            </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
