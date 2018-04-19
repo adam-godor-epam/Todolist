@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<body>
+<div th:fragment="copy">
+    <button class="btn btn-primary" data-toggle="modal" id="myBtn" data-target="#myModal">
+        Add Todo!
+    </button>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Todo</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/addtodo" method="post">
+                        <input th:required="required" type="text" name="newtodo" placeholder="todo"/>
+                        <br/>
+                        <select name="friend">
+                            <div th:each="friend, iterStat : ${friends}">
+                                <option th:text="${friend.getName()}">missing</option>
+                            </div>
+                        </select>
+                        <button type="submit" class="btn btn-primary reg">New Todo!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
