@@ -10,24 +10,24 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int userId;
+    private Customer customer;
     private String toDo;
-    private int creatorId;
+    private Customer creator;
 
-    public Todo (int userId, String toDo){
-        this.userId = userId;
+    public Todo (Customer customer, String toDo){
+        this.customer= customer;
         this.toDo = toDo;
-        this.creatorId = userId;
+        this.creator = customer;
     }
 
-    public Todo (int userId, String toDo, int creatorId){
-        this.userId = userId;
+    public Todo (Customer customer, String toDo, Customer creator){
+        this.customer = customer;
         this.toDo = toDo;
-        this.creatorId = creatorId;
+        this.creator = creator;
     }
 
-    public int getUserId() {
-        return userId;
+    public Customer getCustomer() {
+        return customer;
     }
 
     public String getToDo() {
@@ -38,10 +38,8 @@ public class Todo {
         this.toDo = toDo;
     }
 
-    public int getCreatorId() {
-        return creatorId;
+    public Customer getCreator() {
+        return creator;
     }
-
-
 
 }
