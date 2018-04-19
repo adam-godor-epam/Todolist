@@ -1,10 +1,8 @@
 package com.codecool.todo.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Customer {
@@ -14,6 +12,12 @@ public class Customer {
     private int id;
     private String name;
     private String psw;
+
+    @OneToMany(mappedBy = "friendshipRequester")
+    private Set<Friendship> requestedFriends;
+
+    @OneToMany(mappedBy = "friendshipReceiver")
+    private Set<Friendship> receivedFriends;
 
     public Customer(String name, String psw){
         this.name = name;

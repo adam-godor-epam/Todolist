@@ -28,7 +28,8 @@ public class LoginController {
 
     @PostMapping(value = "/register")
     public String regist(HttpServletRequest request, HttpSession session, Model model){
-        customerService.save(request.getParameter("name"), request.getParameter("password"));
+        Customer customer = new Customer(request.getParameter("name"), request.getParameter("password"));
+        customerService.save(customer);
         return "redirect:/";
     }
 

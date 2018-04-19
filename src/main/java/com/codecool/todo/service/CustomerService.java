@@ -15,8 +15,7 @@ public class CustomerService {
         return customerRepository.findByName(name);
     }
 
-    public void save(String name, String psw){
-        Customer customer = new Customer(name, psw);
+    public void save(Customer customer){
         customerRepository.save(customer);
     }
 
