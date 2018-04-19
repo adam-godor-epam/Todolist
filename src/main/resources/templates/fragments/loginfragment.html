@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:fragment="copy">
+    <form method = "post" action = "/login">
+        <input th:required="required" type="text" name="name" placeholder="login name" />
+        <br/>
+        <input th:required="required" type="password" name="password" placeholder="password" />
+        <br/>
+        <button type="submit" class="btn btn-primary reg">Login!</button>
+    </form>
+</div>
+
+</body>
+</html>
