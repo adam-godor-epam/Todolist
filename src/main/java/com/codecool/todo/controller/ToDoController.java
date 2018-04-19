@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ToDoController {
 
-    @GetMapping(value = "/")
-    public String renderIndexPage(){
-        return "indexpage";
+
+
+    @GetMapping(value = "/todopage")
+    public String renderTodoPage(){
+        return "todopage";
     }
 }

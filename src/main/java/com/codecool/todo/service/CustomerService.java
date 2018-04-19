@@ -1,0 +1,24 @@
+package com.codecool.todo.service;
+
+import com.codecool.todo.model.Customer;
+import com.codecool.todo.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomerService {
+
+    @Autowired
+    private CustomerRepository customerRepository;
+
+    public Customer getCustomerByName(String name){
+        return customerRepository.findByName(name);
+    }
+
+    public void save(String name, String psw){
+        Customer customer = new Customer(name, psw);
+        customerRepository.save(customer);
+    }
+
+
+}
