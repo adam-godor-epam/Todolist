@@ -18,15 +18,20 @@ public class Customer {
     private Set<Friendship> requestedFriends;
     @OneToMany(mappedBy = "friendshipReceiver")
     private Set<Friendship> receivedFriends;
-
     @OneToMany(mappedBy = "customer")
     private List<Todo> todos;
-
-
 
     public Customer(String name, String psw){
         this.name = name;
         this.psw = psw;
+    }
+
+    public Customer() {
+    }
+
+    public String getPsw() {
+
+        return psw;
     }
 
     public int getId() {

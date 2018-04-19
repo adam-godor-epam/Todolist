@@ -15,6 +15,7 @@ public class Todo {
     @JoinColumn(name = "creator_id")
     private Customer creator;
 
+    public Todo(){}
 
     public Todo (Customer customer, String toDo){
         this.customer= customer;

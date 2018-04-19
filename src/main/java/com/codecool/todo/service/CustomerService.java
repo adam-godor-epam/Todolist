@@ -19,5 +19,13 @@ public class CustomerService {
         customerRepository.save(customer);
     }
 
+    public boolean checkPasword(String name, String psw){
+        if(getCustomerByName(name).getPsw().equals(psw)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }

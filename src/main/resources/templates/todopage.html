@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Your things for this day!</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
     <p>This is the todopage</p>
+
+
+        <table>
+            <tr>
+                <td><strong>your job</strong></td>
+                <td><strong>giver</strong></td>
+            </tr>
+            <div th:each="todo, iterStat : ${todos}">
+            <tr>
+                <td th:text="${todo.getToDo()}"></td>
+                <td th:text="${todo.getCreator().getName()}"></td>
+            </tr>
+            </div>
+        </table>
+
 </body>
 </html>

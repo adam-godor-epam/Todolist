@@ -15,6 +15,10 @@ public class Friendship implements Serializable {
     @ManyToOne
     private Customer friendshipReceiver;
 
+    public Friendship(){
+
+    }
+
     public Friendship (Customer friendshipRequester, Customer friendshipReceiver){
         this.friendshipRequester = friendshipRequester;
         this.friendshipReceiver = friendshipReceiver;

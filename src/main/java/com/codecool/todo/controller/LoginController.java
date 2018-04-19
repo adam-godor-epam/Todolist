@@ -2,6 +2,7 @@ package com.codecool.todo.controller;
 
 import com.codecool.todo.model.Customer;
 import com.codecool.todo.service.CustomerService;
+import com.codecool.todo.service.ToDoService;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -20,10 +21,20 @@ public class LoginController {
     @Autowired
     CustomerService customerService;
 
+    @Autowired
+    ToDoService toDoService;
+
     @PostMapping(value = "/login")
     public String login(HttpServletRequest request, HttpSession session, Model model){
-        Customer costumer = customerService.getCustomerByName(request.getParameter("name"));
-        return "redirect:/todopage";
+        System.out.println("now we are at login");
+        Customer customer = customerService.getCustomerByName(request.getParameter("name"));
+        if(customer != null && customerService.checkPasword(customer.getName(), customer.getPsw())){
+            session.setAttribute("name", customer.getName());
+            return "redirect:/todopage";
+        } else {
+            System.out.println("error");
+            return "redirect:/";
+        }
     }
 
     @PostMapping(value = "/register")
