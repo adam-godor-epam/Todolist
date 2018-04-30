@@ -18,7 +18,7 @@
                         <input th:required="required" type="text" name="newtodo" placeholder="todo"/>
                         <br/>
                         <select name="friend">
-                            <div th:each="friend, iterStat : ${friends}">
+                            <div th:each="friend,iterStat : ${friends}">
                                 <option th:text="${friend.getName()}">missing</option>
                             </div>
                         </select>

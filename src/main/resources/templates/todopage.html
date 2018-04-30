@@ -17,7 +17,7 @@
                 <td><strong>your job</strong></td>
                 <td><strong>giver</strong></td>
             </tr>
-            <div th:each="todo, iterStat : ${todos}">
+            <div th:each="todo,iterStat : ${todos}">
             <tr>
                 <td th:text="${todo.getToDo()}"></td>
                 <td th:text="${todo.getCreator().getName()}"></td>

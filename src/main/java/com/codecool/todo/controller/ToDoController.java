@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class ToDoController {
@@ -25,23 +23,19 @@ public class ToDoController {
     CustomerService customerService;
 
     @GetMapping(value = "/todopage")
-    public String renderTodoPage(HttpSession session, Model model){
+    public String renderTodoPage(HttpSession session, Model model) {
         Customer customer = customerService.getCustomerByName(session.getAttribute("name").toString());
         model.addAttribute("todos", toDoService.getAllTodo(customer.getId()));
-        List<Customer> friends = new ArrayList<>();
-        friends.add(customerService.getCustomerByName("name1"));
-        friends.add(customerService.getCustomerByName("name"));
-        model.addAttribute("friends", friends);
+        model.addAttribute("friends", customerService.friendsIncludingCustomer((String) session.getAttribute("name")));
         return "todopage";
     }
 
     @PostMapping(value = "/addtodo")
-    public String addToDo(HttpServletRequest request, HttpSession session){
+    public String addToDo(HttpServletRequest request, HttpSession session) {
         Todo todo = new Todo(customerService.getCustomerByName(request.getParameter("friend")),
-                            request.getParameter("newtodo"),
-                            customerService.getCustomerByName(session.getAttribute("name").toString()));
+                request.getParameter("newtodo"),
+                customerService.getCustomerByName(session.getAttribute("name").toString()));
         toDoService.save(todo);
         return "redirect:/todopage";
     }
-
 }

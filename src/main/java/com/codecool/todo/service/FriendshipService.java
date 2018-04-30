@@ -18,7 +18,4 @@ public class FriendshipService {
         friendshipRepository.save(friendship);
     }
 
-    List<Friendship> findFriends(int id){
-        return friendshipRepository.findFriendshipByFriendshipRequester_Id(id);
-    }
 }
