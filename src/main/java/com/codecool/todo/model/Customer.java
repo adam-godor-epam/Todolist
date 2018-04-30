@@ -17,11 +17,9 @@ public class Customer {
     private int id;
     private String name;
     private String psw;
-
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="friends")
-    @JoinColumn(name="person_A_id", referencedColumnName="id")
-    private List<Customer> friends = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="friends", joinColumns = @JoinColumn(name="person_A_id", referencedColumnName="id"), inverseJoinColumns = @JoinColumn(name="person_B_id", referencedColumnName="id"))
+    private Set<Customer> friends = new HashSet<>();
 
     @OneToMany(mappedBy = "customer")
     private List<Todo> todos;
@@ -30,11 +28,16 @@ public class Customer {
         this.psw = psw;
     }
 
+
     public Customer() {
     }
 
-    public List<Customer> getFriends() {
+    public Set<Customer> getFriends() {
         return friends;
+    }
+
+    public void setFriends(Set<Customer> friends) {
+        this.friends = friends;
     }
 
     public String getPsw() {

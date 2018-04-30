@@ -27,6 +27,7 @@ public class ToDoController {
         Customer customer = customerService.getCustomerByName(session.getAttribute("name").toString());
         model.addAttribute("todos", toDoService.getAllTodo(customer.getId()));
         model.addAttribute("friends", customerService.friendsIncludingCustomer((String) session.getAttribute("name")));
+        model.addAttribute("customers", customerService.findAll());
         return "todopage";
     }
 

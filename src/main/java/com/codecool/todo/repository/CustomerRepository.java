@@ -13,4 +13,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     @Query("SELECT friends FROM Customer c Where c.name = ?1")
     List<Customer> findFriends(String name);
+
+
 }

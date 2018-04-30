@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<body>
+<div th:fragment="copy">
+    <button class="btn btn-primary" data-toggle="modal" id="myBtn" data-target="#myfriendModal">
+        Add Friend!
+    </button>
+    <div id="myfriendModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Friend</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/addnewfriend" method="post">
+                        <select name="name">
+                            <div th:each="customer,iterStat : ${customers}">
+                                <option th:text="${customer.getName()}">All Customers are your friend!</option>
+                            </div>
+                        </select>
+                        <button type="submit" class="btn btn-primary reg">New Friend!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

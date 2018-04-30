@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CustomerService {
@@ -48,9 +49,19 @@ public class CustomerService {
     }
 
     public void addFriend(String beFriender, String beFriended){
-        Customer cust1 = getCustomerByName(beFriender);
-        Customer cust2 = getCustomerByName(beFriended);
-        cust1.getFriends().add(cust2);
-        cust2.getFriends().add(cust1);
+        createConnection(beFriender, beFriended);
+        createConnection(beFriended, beFriender);
+    };
+
+    public void createConnection(String beFriender, String beFriended){
+        Customer customer1 = getCustomerByName(beFriender);
+        Customer customer2 = getCustomerByName(beFriended);
+
+        Set<Customer> friends = customer1.getFriends();
+
+        friends.add(customer2);
+
+        customer1.setFriends(friends);
+        customerRepository.save(customer1);
     }
 }
