@@ -30,7 +30,6 @@ public class ToDoController {
         model.addAttribute("friends", customerService.friendsIncludingCustomer(userName));
         model.addAttribute("customers", customerService.getPossibleFriends(userName));
         model.addAttribute("hasPossibleFriends", customerService.getPossibleFriends(userName).size());
-        System.out.println(customerService.getPossibleFriends(userName).size());
         return "todopage";
     }
 

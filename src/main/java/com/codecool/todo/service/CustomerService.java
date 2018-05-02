@@ -2,6 +2,7 @@ package com.codecool.todo.service;
 
 import com.codecool.todo.model.Customer;
 import com.codecool.todo.repository.CustomerRepository;
+import com.codecool.todo.utility.Password;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +24,8 @@ public class CustomerService {
         customerRepository.save(customer);
     }
 
-    public boolean checkPassword(String name, String psw) {
-        if (getCustomerByName(name).getPsw().equals(psw)) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean checkPassword(String userProvidedPsw, String psw) {
+        return Password.checkPassword(userProvidedPsw, psw);
     }
 
     public List<Customer> findAll() {

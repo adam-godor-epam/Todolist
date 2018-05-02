@@ -12,9 +12,9 @@ public class InitializerBean {
     public InitializerBean(CustomerService costumerService,
                            ToDoService toDoService) {
 
-        Customer customer1 = new Customer("name", "psw");
-        Customer customer2 = new Customer("name1", "psw1");
-        Customer customer3 = new Customer("name2", "psw2");
+        Customer customer1 = new Customer("name", Password.hashPassword("psw"));
+        Customer customer2 = new Customer("name1", Password.hashPassword("psw"));
+        Customer customer3 = new Customer("name2", Password.hashPassword("psw"));
 
         customer1.getFriends().add(customer2);
         customer2.getFriends().add(customer1);
