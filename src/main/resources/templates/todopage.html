@@ -11,22 +11,25 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-    <p>This is the todopage</p>
-        <table>
-            <tr>
-                <td><strong>your job</strong></td>
-                <td><strong>giver</strong></td>
-            </tr>
-            <div th:each="todo,iterStat : ${todos}">
-            <tr>
-                <td th:text="${todo.getToDo()}"></td>
-                <td th:text="${todo.getCreator().getName()}"></td>
-            </tr>
-            </div>
-        </table>
-    <div th:replace="fragments/addtodomodalfragment"></div>
+<p>This is the todopage</p>
+<table>
+    <tr>
+        <td><strong>your job</strong></td>
+        <td><strong>giver</strong></td>
+    </tr>
+    <div th:each="todo,iterStat : ${todos}">
+        <tr>
+            <td th:text="${todo.getToDo()}"></td>
+            <td th:text="${todo.getCreator().getName()}"></td>
+        </tr>
+    </div>
+</table>
+<div th:replace="fragments/addtodomodalfragment"></div>
 
-    <div th:replace="fragments/addfriendmodalfragment"></div>
-    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+<div th:replace="fragments/addfriendmodalfragment"></div>
+<a href="/logout">
+    <button class="btn btn-primary" type="button">Logout!</button>
+</a>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
 </body>
 </html>
