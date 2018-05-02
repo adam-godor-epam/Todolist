@@ -24,10 +24,13 @@ public class ToDoController {
 
     @GetMapping(value = "/todopage")
     public String renderTodoPage(HttpSession session, Model model) {
-        Customer customer = customerService.getCustomerByName(session.getAttribute("name").toString());
+        String userName = (String) session.getAttribute("name");
+        Customer customer = customerService.getCustomerByName(userName);
         model.addAttribute("todos", toDoService.getAllTodo(customer.getId()));
-        model.addAttribute("friends", customerService.friendsIncludingCustomer((String) session.getAttribute("name")));
-        model.addAttribute("customers", customerService.findAll());
+        model.addAttribute("friends", customerService.friendsIncludingCustomer(userName));
+        model.addAttribute("customers", customerService.getPossibleFriends(userName));
+        model.addAttribute("hasPossibleFriends", customerService.getPossibleFriends(userName).size());
+        System.out.println(customerService.getPossibleFriends(userName).size());
         return "todopage";
     }
 

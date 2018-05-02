@@ -25,7 +25,7 @@ public class LoginController {
     ToDoService toDoService;
 
     @PostMapping(value = "/login")
-    public String login(HttpServletRequest request, HttpSession session, Model model) {
+    public String login(HttpServletRequest request, HttpSession session) {
         Customer customer = customerService.getCustomerByName(request.getParameter("name"));
         if (customer != null && customerService.checkPassword(customer.getName(), customer.getPsw())) {
             session.setAttribute("name", customer.getName());

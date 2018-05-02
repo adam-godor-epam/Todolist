@@ -64,4 +64,10 @@ public class CustomerService {
         customer1.setFriends(friends);
         customerRepository.save(customer1);
     }
+
+    public List<Customer> getPossibleFriends(String name){
+        List<Customer> modifiedList = findAll();
+        modifiedList.removeAll(friendsIncludingCustomer(name));
+        return modifiedList;
+    }
 }
