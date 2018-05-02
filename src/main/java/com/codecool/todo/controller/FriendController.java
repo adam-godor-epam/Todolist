@@ -18,9 +18,6 @@ public class FriendController {
 
     @PostMapping(value = "/addnewfriend")
     public String newFriend(HttpSession session, HttpServletRequest request){
-        System.out.println("friendshipcontroller");
-        System.out.println((String) session.getAttribute("name"));
-        System.out.println(request.getParameter("name"));
         customerService.addFriend((String) session.getAttribute("name"), request.getParameter("name"));
         return "redirect:/todopage";
     }

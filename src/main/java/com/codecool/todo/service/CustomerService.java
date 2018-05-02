@@ -51,7 +51,7 @@ public class CustomerService {
     public void addFriend(String beFriender, String beFriended){
         createConnection(beFriender, beFriended);
         createConnection(beFriended, beFriender);
-    };
+    }
 
     public void createConnection(String beFriender, String beFriended){
         Customer customer1 = getCustomerByName(beFriender);
