@@ -67,4 +67,14 @@ public class CustomerService {
         modifiedList.removeAll(friendsIncludingCustomer(name));
         return modifiedList;
     }
+
+    public boolean isNameTaken(String name) {
+        for(Customer customer : findAll()){
+            if(customer.getName().equals(name)){
+                System.out.println("name is taken!");
+                return true;
+            }
+        }
+        return false;
+    }
 }

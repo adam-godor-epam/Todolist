@@ -38,10 +38,17 @@ public class LoginController {
     }
 
     @PostMapping(value = "/register")
-    public String regist(HttpServletRequest request, HttpSession session, Model model) {
-        Customer customer = new Customer(request.getParameter("name"), Password.hashPassword(request.getParameter("password")));
-        customerService.save(customer);
-        return "redirect:/";
+    public String regist(HttpServletRequest request, HttpSession session) {
+        if (!customerService.isNameTaken((String) session.getAttribute("name")) && request.getParameter("name") != null) {
+            Customer customer = new Customer(request.getParameter("name"), Password.hashPassword(request.getParameter("password")));
+            customerService.save(customer);
+            session.setAttribute("name", customer.getName());
+            session.setAttribute("id", customer.getId());
+            return "redirect:/todopage";
+        } else {
+            System.out.println("registration failed!");
+            return "redirect:/";
+        }
     }
 
     @GetMapping(value = "/")
