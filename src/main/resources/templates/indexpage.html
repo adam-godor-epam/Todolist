@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>DO your thing!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{css/mainstyle.css}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -11,10 +12,13 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<p>this is the index page</p>
-
-<p>Please log in or register!</p>
-    <div th:replace="fragments/modalfragment :: copy"></div>
+<div th:replace="fragments/headerfragment :: copy"></div>
+<div class="section">
+    <article>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque rutrum sapien, eu volutpat ipsum porttitor sit amet. Proin at tellus velit. Maecenas vitae condimentum augue, sit amet imperdiet erat. Ut accumsan lectus quis tortor imperdiet finibus. Praesent vel nunc finibus, accumsan risus non, porttitor enim. Duis accumsan, est eget dignissim interdum, massa libero facilisis purus, ut aliquet orci nibh in urna. Fusce vehicula mollis massa, ultrices sodales mauris aliquet at. Duis in dignissim urna. Mauris congue lectus vel lacus venenatis congue. Integer posuere augue a purus lobortis, vel semper ipsum sagittis.Integer sit amet urna varius, placerat odio at, sagittis odio. Aliquam laoreet rhoncus posuere. Aenean purus metus, auctor eget condimentum et, sodales at nisi. Proin quis rutrum ex. Sed nunc risus, aliquam vitae mi sed, fringilla iaculis purus. In aliquet, neque id imperdiet fringilla, quam tortor pretium justo, non interdum arcu nibh vitae libero. Vestibulum luctus dolor et sapien scelerisque faucibus. Mauris lobortis dui vel fermentum rutrum.
+    </article>
+    <aside th:replace="fragments/modalfragment :: copy"></aside>
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
+</div>
 </body>
 </html>

@@ -1,0 +1,44 @@
+.head {
+    display: grid;
+    grid-template-columns: 1fr 9fr 1fr;
+}
+
+.head > div:nth-child(even) {
+    background-color: #888888;
+}
+.heads {
+    grid-column-start: 2;
+    text-align: center;
+}
+
+.todo-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 5fr 2fr 1fr;
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+}
+
+.todo-container > div {
+    background-color: darkgrey;
+    text-align: center;
+}
+
+.todo-container > div:nth-child(odd) {
+    background-color: #888888;
+}
+
+.idcolumn {
+    grid-column-start: 2;
+}
+
+
+.buttongrids {
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
+    grid-column-gap: 1em;
+    text-align: center;
+}
+
+.gridbutton {
+    grid-column-start: 2;
+}

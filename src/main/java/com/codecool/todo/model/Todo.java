@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -15,19 +15,23 @@ public class Todo {
     @ManyToOne
     @JoinColumn(name = "creator_id")
     private Customer creator;
+    public Todo() {
+    }
 
-    public Todo(){}
-
-    public Todo (Customer customer, String toDo){
-        this.customer= customer;
+    public Todo(Customer customer, String toDo) {
+        this.customer = customer;
         this.toDo = toDo;
         this.creator = customer;
     }
 
-    public Todo (Customer customer, String toDo, Customer creator){
+    public Todo(Customer customer, String toDo, Customer creator) {
         this.customer = customer;
         this.toDo = toDo;
         this.creator = creator;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public Customer getCustomer() {

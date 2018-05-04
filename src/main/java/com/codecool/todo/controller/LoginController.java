@@ -39,7 +39,7 @@ public class LoginController {
 
     @PostMapping(value = "/register")
     public String regist(HttpServletRequest request, HttpSession session) {
-        if (!customerService.isNameTaken((String) session.getAttribute("name"))
+        if (!customerService.isNameTaken(request.getParameter("name"))
                 && request.getParameter("name") != null
                 && request.getParameter("password").equals(request.getParameter("passwordagain"))) {
             Customer customer = new Customer(request.getParameter("name"), Password.hashPassword(request.getParameter("password")));

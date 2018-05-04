@@ -22,6 +22,8 @@ public class ToDoController {
     @Autowired
     CustomerService customerService;
 
+    //todo create a check if user is not logged in so it wont return with 500 status code
+    //if user is null return 403
     @GetMapping(value = "/todopage")
     public String renderTodoPage(HttpSession session, Model model) {
         String userName = (String) session.getAttribute("name");
